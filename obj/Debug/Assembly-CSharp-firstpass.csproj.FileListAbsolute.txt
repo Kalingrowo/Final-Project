@@ -1,0 +1,64 @@
+D:\File Mahasiswa\Rowi - 2014\NFC\Unity Project\School of Lord\Temp\bin\Debug\Assembly-CSharp-firstpass.dll
+D:\File Mahasiswa\Rowi - 2014\NFC\Unity Project\School of Lord\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
+D:\File Mahasiswa\Rowi - 2014\NFC\Unity Project\School of Lord\Temp\bin\Debug\nunit.framework.dll
+D:\File Mahasiswa\Rowi - 2014\NFC\Unity Project\School of Lord\Temp\bin\Debug\UnityEditor.dll
+D:\File Mahasiswa\Rowi - 2014\NFC\Unity Project\School of Lord\Temp\bin\Debug\UnityEngine.Analytics.dll
+D:\File Mahasiswa\Rowi - 2014\NFC\Unity Project\School of Lord\Temp\bin\Debug\UnityEngine.dll
+D:\File Mahasiswa\Rowi - 2014\NFC\Unity Project\School of Lord\Temp\bin\Debug\UnityEngine.HoloLens.dll
+D:\File Mahasiswa\Rowi - 2014\NFC\Unity Project\School of Lord\Temp\bin\Debug\UnityEngine.Networking.dll
+D:\File Mahasiswa\Rowi - 2014\NFC\Unity Project\School of Lord\Temp\bin\Debug\UnityEngine.TestRunner.dll
+D:\File Mahasiswa\Rowi - 2014\NFC\Unity Project\School of Lord\Temp\bin\Debug\UnityEngine.Timeline.dll
+D:\File Mahasiswa\Rowi - 2014\NFC\Unity Project\School of Lord\Temp\bin\Debug\UnityEngine.UI.dll
+D:\File Mahasiswa\Rowi - 2014\NFC\Unity Project\School of Lord\Temp\bin\Debug\Mono.Cecil.dll
+D:\File Mahasiswa\Rowi - 2014\NFC\Unity Project\School of Lord\Temp\bin\Debug\Unity.SerializationLogic.dll
+D:\File Mahasiswa\Rowi - 2014\NFC\Unity Project\School of Lord\Temp\bin\Debug\Unity.DataContract.dll
+D:\File Mahasiswa\Rowi - 2014\NFC\Unity Project\School of Lord\Temp\bin\Debug\ExCSS.Unity.dll
+D:\File Mahasiswa\Rowi - 2014\NFC\Unity Project\School of Lord\Temp\bin\Debug\Unity.Legacy.NRefactory.dll
+D:\File Mahasiswa\Rowi - 2014\NFC\Unity Project\School of Lord\Temp\bin\Debug\Unity.UNetWeaver.dll
+D:\File Mahasiswa\Rowi - 2014\NFC\Unity Project\School of Lord\Temp\bin\Debug\Unity.CecilTools.dll
+D:\File Mahasiswa\Rowi - 2014\NFC\Unity Project\School of Lord\Temp\bin\Debug\Mono.Cecil.Pdb.dll
+D:\File Mahasiswa\Rowi - 2014\NFC\Unity Project\School of Lord\Temp\bin\Debug\Mono.Cecil.Mdb.dll
+D:\File Mahasiswa\Rowi - 2014\NFC\Unity Project\School of Lord\Temp\bin\Debug\UnityEngine.xml
+D:\File Mahasiswa\Rowi - 2014\NFC\Unity Project\School of Lord\Temp\bin\Debug\UnityEditor.xml
+D:\File Mahasiswa\Rowi - 2014\NFC\Unity Project\School of Lord\Temp\bin\Debug\UnityEngine.UI.xml
+D:\File Mahasiswa\Rowi - 2014\NFC\Unity Project\School of Lord\Temp\bin\Debug\UnityEngine.Networking.xml
+D:\File Mahasiswa\Rowi - 2014\NFC\Unity Project\School of Lord\Temp\bin\Debug\UnityEngine.TestRunner.xml
+D:\File Mahasiswa\Rowi - 2014\NFC\Unity Project\School of Lord\Temp\bin\Debug\nunit.framework.xml
+D:\File Mahasiswa\Rowi - 2014\NFC\Unity Project\School of Lord\Temp\bin\Debug\UnityEngine.Timeline.xml
+D:\File Mahasiswa\Rowi - 2014\NFC\Unity Project\School of Lord\Temp\bin\Debug\UnityEngine.Analytics.xml
+D:\File Mahasiswa\Rowi - 2014\NFC\Unity Project\School of Lord\Temp\bin\Debug\UnityEngine.HoloLens.xml
+D:\File Mahasiswa\Rowi - 2014\NFC\Unity Project\School of Lord\obj\Debug\Assembly-CSharp-firstpass.csprojResolveAssemblyReference.cache
+D:\File Mahasiswa\Rowi - 2014\NFC\Unity Project\School of Lord\obj\Debug\Assembly-CSharp-firstpass.dll
+D:\File Mahasiswa\Rowi - 2014\NFC\Unity Project\School of Lord\obj\Debug\Assembly-CSharp-firstpass.pdb
+D:\Kuliah\Proyek Akhir\Unity project\School of Lord\obj\Debug\Assembly-CSharp-firstpass.dll
+D:\Kuliah\Proyek Akhir\Unity project\School of Lord\obj\Debug\Assembly-CSharp-firstpass.pdb
+D:\Kuliah\Proyek Akhir\Unity project\School of Lord\Temp\bin\Debug\Assembly-CSharp-firstpass.dll
+D:\Kuliah\Proyek Akhir\Unity project\School of Lord\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
+D:\Kuliah\Proyek Akhir\Unity project\School of Lord\Temp\bin\Debug\nunit.framework.dll
+D:\Kuliah\Proyek Akhir\Unity project\School of Lord\Temp\bin\Debug\UnityEditor.dll
+D:\Kuliah\Proyek Akhir\Unity project\School of Lord\Temp\bin\Debug\UnityEngine.Analytics.dll
+D:\Kuliah\Proyek Akhir\Unity project\School of Lord\Temp\bin\Debug\UnityEngine.dll
+D:\Kuliah\Proyek Akhir\Unity project\School of Lord\Temp\bin\Debug\UnityEngine.HoloLens.dll
+D:\Kuliah\Proyek Akhir\Unity project\School of Lord\Temp\bin\Debug\UnityEngine.Networking.dll
+D:\Kuliah\Proyek Akhir\Unity project\School of Lord\Temp\bin\Debug\UnityEngine.TestRunner.dll
+D:\Kuliah\Proyek Akhir\Unity project\School of Lord\Temp\bin\Debug\UnityEngine.Timeline.dll
+D:\Kuliah\Proyek Akhir\Unity project\School of Lord\Temp\bin\Debug\UnityEngine.UI.dll
+D:\Kuliah\Proyek Akhir\Unity project\School of Lord\Temp\bin\Debug\Mono.Cecil.dll
+D:\Kuliah\Proyek Akhir\Unity project\School of Lord\Temp\bin\Debug\Unity.SerializationLogic.dll
+D:\Kuliah\Proyek Akhir\Unity project\School of Lord\Temp\bin\Debug\Unity.DataContract.dll
+D:\Kuliah\Proyek Akhir\Unity project\School of Lord\Temp\bin\Debug\ExCSS.Unity.dll
+D:\Kuliah\Proyek Akhir\Unity project\School of Lord\Temp\bin\Debug\Unity.Legacy.NRefactory.dll
+D:\Kuliah\Proyek Akhir\Unity project\School of Lord\Temp\bin\Debug\Unity.UNetWeaver.dll
+D:\Kuliah\Proyek Akhir\Unity project\School of Lord\Temp\bin\Debug\Unity.CecilTools.dll
+D:\Kuliah\Proyek Akhir\Unity project\School of Lord\Temp\bin\Debug\Mono.Cecil.Pdb.dll
+D:\Kuliah\Proyek Akhir\Unity project\School of Lord\Temp\bin\Debug\Mono.Cecil.Mdb.dll
+D:\Kuliah\Proyek Akhir\Unity project\School of Lord\Temp\bin\Debug\UnityEngine.xml
+D:\Kuliah\Proyek Akhir\Unity project\School of Lord\Temp\bin\Debug\UnityEditor.xml
+D:\Kuliah\Proyek Akhir\Unity project\School of Lord\Temp\bin\Debug\UnityEngine.UI.xml
+D:\Kuliah\Proyek Akhir\Unity project\School of Lord\Temp\bin\Debug\UnityEngine.Networking.xml
+D:\Kuliah\Proyek Akhir\Unity project\School of Lord\Temp\bin\Debug\UnityEngine.TestRunner.xml
+D:\Kuliah\Proyek Akhir\Unity project\School of Lord\Temp\bin\Debug\nunit.framework.xml
+D:\Kuliah\Proyek Akhir\Unity project\School of Lord\Temp\bin\Debug\UnityEngine.Timeline.xml
+D:\Kuliah\Proyek Akhir\Unity project\School of Lord\Temp\bin\Debug\UnityEngine.Analytics.xml
+D:\Kuliah\Proyek Akhir\Unity project\School of Lord\Temp\bin\Debug\UnityEngine.HoloLens.xml
+D:\Kuliah\Proyek Akhir\Unity project\School of Lord\obj\Debug\Assembly-CSharp-firstpass.csprojResolveAssemblyReference.cache
