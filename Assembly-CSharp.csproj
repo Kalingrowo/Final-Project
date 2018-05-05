@@ -61,6 +61,9 @@
      <Compile Include="Assets\Scripts\Main Scripts\SelectCharP2.cs" />
      <Compile Include="Assets\Scripts\Main Scripts\UIManager.cs" />
      <Compile Include="Assets\Scripts\Main.cs" />
+     <Compile Include="Assets\Store Pack\ProgressBar\Script\ProgressBarBehaviour.cs" />
+     <Compile Include="Assets\Store Pack\ProgressBar\Script\ProgressRadialBehaviour.cs" />
+     <Compile Include="Assets\Store Pack\ProgressBar\Script\Utils.cs" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity 2017.1.0/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
