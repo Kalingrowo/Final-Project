@@ -13,7 +13,10 @@ public class CardsScan : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		// debug
 		PlayerPrefs.SetString ("gameState", "G01");
+		// --------------
+
 		gameplay = GameManager.GetComponent<Gameplay> ();
 
 		/*

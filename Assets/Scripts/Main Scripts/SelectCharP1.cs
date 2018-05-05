@@ -21,6 +21,10 @@ public class SelectCharP1 : MonoBehaviour {
 			charList.Add (t.gameObject);
 			t.gameObject.SetActive (false);
 		}
+
+		// Debug
+		ActivateChar (1);
+		// ---------------------
 	}
 
 	// charIndex 0 is unused

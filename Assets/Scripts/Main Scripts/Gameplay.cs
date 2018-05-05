@@ -18,6 +18,12 @@ public class Gameplay : MonoBehaviour {
 	int curCardP1;
 	int curCardP2;
 
+	public Player1 player1Script;
+	public Player2 player2Script;
+
+	public Sprite[] answerSprites;
+
+	public GameObject[] answer0;
 	public Text txtQuiz, txtTest, txtCardsP1, txtCardsP2;
 	public GameObject panelCharP1, panelCharP2, panelPointP1, panelPointP2;
 	private GenerateQuiz generateQuiz;
@@ -28,7 +34,12 @@ public class Gameplay : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		//debug
+		Screen.orientation = ScreenOrientation.LandscapeLeft;
+		answer0 [0].gameObject.transform.localPosition= new Vector3 (0f, 0f, 0f);
+		//----------------------
 
+		answerSprites = Resources.LoadAll<Sprite> ("Images/Lava Maps/Numbers");
 		players = new int[numOfPlayer, playersData];
 		generateQuiz = this.GetComponent<GenerateQuiz> ();
 
@@ -76,11 +87,18 @@ public class Gameplay : MonoBehaviour {
 		int[] quizResult = new int[3];
 		quizResult = generateQuiz.getQuizResult();
 
+		if (idPlayer == 0) {
+			player1Script.Attack ();
+		} else if (idPlayer == 1) {
+			player2Script.Attack ();
+		}
+
 		for (int i = 0; i < 3; i++) {
 			if (answer == quizResult [i]) {
 				if (txtAnswer [i].GetComponent<Text> ().text == "x") {
 					// answer true
 					txtAnswer [i].GetComponent<Text> ().text = answer.ToString (); 
+					answer0 [i].GetComponent<SpriteRenderer> ().sprite = answerSprites [answer];
 					break;
 				} else {
 					// answer has been used
@@ -136,6 +154,7 @@ public class Gameplay : MonoBehaviour {
 
 			for (int i = 0; i < txtAnswer.Length; i++) {
 				txtAnswer [i].GetComponent<Text> ().text = "x";
+				answer0 [i].GetComponent<SpriteRenderer> ().sprite = answerSprites [0];
 			}
 
 			if (PlayerPrefs.GetString ("gameState") == "G01") {
