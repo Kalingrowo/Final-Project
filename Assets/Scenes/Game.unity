@@ -160,7 +160,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.17}
-  m_ConnectedAnchor: {x: 0, y: -0.1309998}
+  m_ConnectedAnchor: {x: 0, y: -0.13099994}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -276,7 +276,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.2050004}
-  m_ConnectedAnchor: {x: 0, y: 0.2050004}
+  m_ConnectedAnchor: {x: 0, y: 0.20500036}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -626,7 +626,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.010107517, y: 0.17}
-  m_ConnectedAnchor: {x: 0.010107517, y: -0.1400001}
+  m_ConnectedAnchor: {x: 0.010107511, y: -0.1399999}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -750,6 +750,8 @@ MonoBehaviour:
   - {fileID: 1679109595}
   - {fileID: 392086365}
   - {fileID: 691406260}
+  txtScanTime: {fileID: 1501629432}
+  txtGameTime: {fileID: 1601696272}
   btnSkipAnswer: {fileID: 0}
 --- !u!114 &618507315
 MonoBehaviour:
@@ -1096,7 +1098,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.008133411, y: 0.17}
-  m_ConnectedAnchor: {x: 0.008133411, y: -0.1309998}
+  m_ConnectedAnchor: {x: 0.008133408, y: -0.13100018}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1534,7 +1536,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 0.7901841}
   m_ConnectedAnchor: {x: 0, y: -1.0600591}
   m_AutoConfigureDistance: 1
-  m_Distance: 1.2404273
+  m_Distance: 1.2394552
   m_MaxDistanceOnly: 1
 --- !u!1 &878385062
 GameObject:
@@ -2160,7 +2162,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 618507314}
-        m_MethodName: skipAnswer
+        m_MethodName: SkipAnswer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2480,12 +2482,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2029969875}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -40, y: -175.7}
+  m_SizeDelta: {x: 80, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1501629432
 MonoBehaviour:
@@ -2499,7 +2501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2508,18 +2510,18 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 00
 --- !u!222 &1501629433
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2616,12 +2618,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2029969875}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 40, y: -175.69998}
+  m_SizeDelta: {x: 80, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1601696272
 MonoBehaviour:
@@ -2635,7 +2637,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2644,18 +2646,18 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 00
 --- !u!222 &1601696273
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3115,8 +3117,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1601696271}
   - {fileID: 1501629431}
+  - {fileID: 1601696271}
   - {fileID: 1902545722}
   - {fileID: 315550548}
   - {fileID: 1289086212}
@@ -3290,7 +3292,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1230823840}
-        m_MethodName: goMenu
+        m_MethodName: GoKeluar
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

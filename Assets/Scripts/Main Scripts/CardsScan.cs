@@ -50,11 +50,11 @@ public class CardsScan : MonoBehaviour {
 				// change player 1's character
 				if (result == "Ice Wizard") {
 					charGOP1.GetComponent<SelectCharP1> ().ActivateChar (1);
-					gameplay.setPlayer (0, 1, 5);
+					gameplay.SetPlayer (0, 1, 5);
 				} 
 				if (result == "Fire Wizard") {
 					charGOP1.GetComponent<SelectCharP1> ().ActivateChar (2);
-					gameplay.setPlayer (0, 2, 5);
+					gameplay.SetPlayer (0, 2, 5);
 				} 
 			}
 				
@@ -66,36 +66,36 @@ public class CardsScan : MonoBehaviour {
 
 				if (result == "Ice Wizard") {
 					charGOP2.GetComponent<SelectCharP2> ().ActivateChar (1);
-					gameplay.setPlayer (1, 1, 5);
+					gameplay.SetPlayer (1, 1, 5);
 				} 
 				if (result == "Fire Wizard") {
 					charGOP2.GetComponent<SelectCharP2> ().ActivateChar (2);
-					gameplay.setPlayer (1, 2, 5);
+					gameplay.SetPlayer (1, 2, 5);
 				}	
 			}
 			 
 		} else if (PlayerPrefs.GetString ("gameState") == "G01") {
-			if (gameplay.getScanCount () == 0) {
+			if (gameplay.GetScanCount () == 0) {
 				// player 1 scan quiz's reference
-				gameplay.setQuiz (0, int.Parse(result));
-			} else if (gameplay.getScanCount () == 1) {
+				gameplay.SetQuiz (0, int.Parse(result));
+			} else if (gameplay.GetScanCount () == 1) {
 				// player 2 input the answer
-				gameplay.setAnswer(1, int.Parse(result));
-			} else if (gameplay.getScanCount () == 2) {
+				gameplay.SetAnswer(1, int.Parse(result));
+			} else if (gameplay.GetScanCount () == 2) {
 				// player 1 input the answer
-				gameplay.setAnswer(0, int.Parse(result));
+				gameplay.SetAnswer(0, int.Parse(result));
 			}
 
 		} else if (PlayerPrefs.GetString ("gameState") == "G02") {
-			if (gameplay.getScanCount () == 0) {
+			if (gameplay.GetScanCount () == 0) {
 				// player 2 scan quiz's reference
-				gameplay.setQuiz (1, int.Parse(result));
-			} else if (gameplay.getScanCount () == 1) {
+				gameplay.SetQuiz (1, int.Parse(result));
+			} else if (gameplay.GetScanCount () == 1) {
 				// player 1 input the answer
-				gameplay.setAnswer(0, int.Parse(result));
-			} else if (gameplay.getScanCount () == 2) {
+				gameplay.SetAnswer(0, int.Parse(result));
+			} else if (gameplay.GetScanCount () == 2) {
 				// player 2 input the answer
-				gameplay.setAnswer(1, int.Parse(result));
+				gameplay.SetAnswer(1, int.Parse(result));
 			}
 		}
 	}

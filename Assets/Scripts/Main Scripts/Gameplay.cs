@@ -15,6 +15,9 @@ public class Gameplay : MonoBehaviour {
 
 	int scanCount = 0;
 
+	float gameTime, scanTime;
+	bool startScanTime = false;
+
 	int curCardP1;
 	int curCardP2;
 
@@ -28,6 +31,7 @@ public class Gameplay : MonoBehaviour {
 	public GameObject panelCharP1, panelCharP2, panelPointP1, panelPointP2;
 	private GenerateQuiz generateQuiz;
 	public GameObject[] txtAnswer;
+	public Text txtScanTime, txtGameTime;
 
 	public Button btnSkipAnswer;
 
@@ -43,13 +47,29 @@ public class Gameplay : MonoBehaviour {
 		players = new int[numOfPlayer, playersData];
 		generateQuiz = this.GetComponent<GenerateQuiz> ();
 
-		initializeGame ();
+		InitializeGame ();
 	}
 
-	public void initializeGame(){
+	void Update(){
+		if (startScanTime) {
+			if (scanTime > 0) {
+				scanTime -= Time.deltaTime;
+			}
+			if (scanTime <= 0) {
+				scanTime = 0f;
+				SkipAnswer ();
+			}
+		}
+		gameTime += Time.deltaTime;
+
+		txtScanTime.text = ((int)scanTime).ToString();
+		txtGameTime.text = ((int)gameTime).ToString();
+	}
+
+	public void InitializeGame(){
 		// test curcards temp
-		setPlayer (0, 1, 5);
-		setPlayer (1, 1, 5);
+		SetPlayer (0, 1, 5);
+		SetPlayer (1, 1, 5);
 		// --
 
 		PlayerPrefs.SetString ("gameState", "G01");
@@ -57,35 +77,35 @@ public class Gameplay : MonoBehaviour {
 		panelCharP1.SetActive(true);
 		panelCharP2.SetActive(true);
 
-		generateHUD ();
+		GenerateHUD ();
 	}
 
-	public void setPlayer(int idPlayer, int idChar, int curCards){
+	public void SetPlayer(int idPlayer, int idChar, int curCards){
 		players [idPlayer, 0] = idChar;
 		players [idPlayer, 1] = curCards;
 	}
 
-	public void setCurCards(int idPlayer, int point){
+	public void SetCurCards(int idPlayer, int point){
 		int temp = players [idPlayer, 1];
 		players [idPlayer, 1] = temp + point;
 	}
 
-	public int getCurCards(int idPlayer){
+	public int GetCurCards(int idPlayer){
 		return (players [idPlayer, 1]);
 	}
 		
-	public void setQuiz(int idPlayer, int x){
+	public void SetQuiz(int idPlayer, int x){
 		scanCount += 1;
-		txtQuiz.text = generateQuiz.setQuiz (x);
+		txtQuiz.text = generateQuiz.SetQuiz (x);
 
-		generateHUD ();
+		GenerateHUD ();
 	}
 
-	public void setAnswer(int idPlayer, int answer){
+	public void SetAnswer(int idPlayer, int answer){
 		scanCount += 1;
 		int wrong = 0;
 		int[] quizResult = new int[3];
-		quizResult = generateQuiz.getQuizResult();
+		quizResult = generateQuiz.GetQuizResult();
 
 		if (idPlayer == 0) {
 			player1Script.Attack ();
@@ -112,30 +132,35 @@ public class Gameplay : MonoBehaviour {
 
 		if (wrong >= 2) {
 			// wrong answer
-			setCurCards (idPlayer, 1);
+			SetCurCards (idPlayer, 1);
 			if (idPlayer == 0) {
-				setCurCards (1, -1);
+				SetCurCards (1, -1);
 			} else {
-				setCurCards (0, -1);
+				SetCurCards (0, -1);
 			}
 		} else {
-			setCurCards (idPlayer, -1);
+			SetCurCards (idPlayer, -1);
 		}
 		wrong = 0;
 
-		generateHUD ();
+		GenerateHUD ();
 
 	}
 
-	public void skipAnswer(){
+	public void SkipAnswer(){
 		scanCount += 1;
-		generateHUD ();
+		GenerateHUD ();
 	}
 
-	public void generateHUD(){
+	public void GenerateHUD(){
+		//start coroutine -> wait 1 minutes
 
-		txtCardsP1.text = getCurCards (0).ToString();
-		txtCardsP2.text = getCurCards (1).ToString();
+		txtCardsP1.text = GetCurCards (0).ToString();
+		txtCardsP2.text = GetCurCards (1).ToString();
+
+		startScanTime = false;
+		scanTime = 0f;
+		StartCoroutine ("WaitX", 2f);
 
 		if (scanCount == 1) {
 			if (PlayerPrefs.GetString ("gameState") == "G01") {
@@ -151,6 +176,7 @@ public class Gameplay : MonoBehaviour {
 			}
 		} else if (scanCount >= 3) {
 			scanCount = 0;
+			scanTime = 0f;
 
 			for (int i = 0; i < txtAnswer.Length; i++) {
 				txtAnswer [i].GetComponent<Text> ().text = "x";
@@ -167,7 +193,16 @@ public class Gameplay : MonoBehaviour {
 		}
 	}
 
-	public int getScanCount(){
+	public int GetScanCount(){
 		return scanCount;
 	}
+
+	IEnumerator WaitX(float times){
+		yield return new WaitForSeconds(times);
+		if (scanCount > 0 && scanCount < 3) {
+			scanTime = 17f;
+			startScanTime = true;
+		} 
+	}
+
 }

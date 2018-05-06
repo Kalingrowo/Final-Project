@@ -30,7 +30,7 @@ public class UIManager : MonoBehaviour {
 		if (GameObject.Find ("OffBGM") != null) {
 			OffBGM = GameObject.Find ("OffBGM");
 			Debug.Log ("OffBGM found !");
-			setBGM ();
+			SetBGM ();
 		}
 
 		//====
@@ -73,7 +73,7 @@ public class UIManager : MonoBehaviour {
 		btnPlay.SetActive (true);
 	}
 
-	public void setBGM(){
+	public void SetBGM(){
 		BGM = !BGM;
 		if (BGM == true) {
 			OffBGM.gameObject.SetActive (false);
@@ -85,19 +85,19 @@ public class UIManager : MonoBehaviour {
 		}
 	}
 
-	public void goKeluar(){
+	public void GoKeluar(){
 		
 	}
 
-	public void goGame(){
+	public void GoGame(){
 		SceneManager.LoadScene ("Game");
 	}
 
-	public void goMulai(){
+	public void GoMulai(){
 		SceneManager.LoadScene ("Select Char");
 	}
 
-	public void goMenu(){
+	public void GoMenu(){
 		SceneManager.LoadScene ("Main Menu");
 	}
 }

@@ -16,7 +16,7 @@ public class GenerateQuiz : MonoBehaviour {
 		
 	}
 
-	public string setQuiz(int x){
+	public string SetQuiz(int x){
 		int resultTemp;
 		int randNumb = Random.Range (5, 9);
 		string quiz = x + " x " + randNumb + " = ";
@@ -36,7 +36,7 @@ public class GenerateQuiz : MonoBehaviour {
 		return (quiz);
 	}
 
-	public int[] getQuizResult(){
+	public int[] GetQuizResult(){
 		return result;
 	}
 }
