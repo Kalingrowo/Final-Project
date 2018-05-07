@@ -11,11 +11,6 @@ public class Player1 : MonoBehaviour {
 		anim = GetComponent<Animator> ();
 		anim.SetInteger ("IDWizard", 2);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
 	public void Attack(){
 		anim.SetTrigger ("Attack");

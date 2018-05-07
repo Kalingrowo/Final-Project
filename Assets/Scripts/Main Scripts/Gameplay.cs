@@ -38,10 +38,10 @@ public class Gameplay : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//debug
 		Screen.orientation = ScreenOrientation.LandscapeLeft;
-		answer0 [0].gameObject.transform.localPosition= new Vector3 (0f, 0f, 0f);
-		//----------------------
+		for (int i = 0; i < answer0.Length; i++) {
+			answer0 [i].SetActive (false);
+		}
 
 		answerSprites = Resources.LoadAll<Sprite> ("Images/Lava Maps/Numbers");
 		players = new int[numOfPlayer, playersData];
@@ -119,6 +119,8 @@ public class Gameplay : MonoBehaviour {
 					// answer true
 					txtAnswer [i].GetComponent<Text> ().text = answer.ToString (); 
 					answer0 [i].GetComponent<SpriteRenderer> ().sprite = answerSprites [answer];
+					answer0 [i].gameObject.transform.localPosition = new Vector3 (0.5f, 0f, 0f);
+					answer0 [i].SetActive (true);
 					break;
 				} else {
 					// answer has been used
@@ -149,6 +151,11 @@ public class Gameplay : MonoBehaviour {
 
 	public void SkipAnswer(){
 		scanCount += 1;
+		//Debug
+		player1Script.Attack ();
+		answer0 [0].gameObject.transform.localPosition = new Vector3 (0.4f, 0f, 0f);
+		answer0 [0].SetActive (true);
+		//-----
 		GenerateHUD ();
 	}
 
