@@ -9,19 +9,24 @@ public class SelectCharP1 : MonoBehaviour {
 
 	public GameObject btnConfirm;
 
+	Animator anim;
+	private Gameplay gameplay;
+
 	// Use this for initialization
 	void Start () {
-
+		
 		// activeChar 0 is equal to empty
 		activeChar = 0;
+		anim = GetComponent<Animator> ();
 
+		/*
 		// character list for selecting character
 		charList = new List<GameObject> ();
 		foreach (Transform t in transform) {
 			charList.Add (t.gameObject);
 			t.gameObject.SetActive (false);
 		}
-
+		*/
 		// Debug
 		ActivateChar (1);
 		// ---------------------
@@ -29,18 +34,29 @@ public class SelectCharP1 : MonoBehaviour {
 
 	// charIndex 0 is unused
 	public void ActivateChar(int charIndex){
+		anim.SetTrigger ("Reset");
+		anim.SetInteger ("IDWizard", charIndex);
+		PlayerPrefs.SetString ("SetPlayer1", "0" + charIndex.ToString () + "5");
+		print(PlayerPrefs.GetString("SetPlayer1"));
+
+		/*
 		if (activeChar != charIndex) {
 			charList [charIndex - 1].SetActive (true);
 			activeChar = charIndex;
 
 			btnConfirm.SetActive (true);
 		} 
+		*/
 	}
 
 	public void DeactivateAllChars(){
+		anim.SetTrigger ("Reset");
+
+		/*
 		foreach (Transform t in transform) {
 			t.gameObject.SetActive (false);
 		}
+		*/
 	}
 
 	// Update is called once per frame

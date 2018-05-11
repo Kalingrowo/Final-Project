@@ -151,17 +151,17 @@ public class Gameplay : MonoBehaviour {
 
 	public void SkipAnswer(){
 		scanCount += 1;
+		/*
 		//Debug
 		player1Script.Attack ();
 		answer0 [0].gameObject.transform.localPosition = new Vector3 (0.4f, 0f, 0f);
 		answer0 [0].SetActive (true);
 		//-----
+		*/
 		GenerateHUD ();
 	}
 
 	public void GenerateHUD(){
-		//start coroutine -> wait 1 minutes
-
 		txtCardsP1.text = GetCurCards (0).ToString();
 		txtCardsP2.text = GetCurCards (1).ToString();
 
@@ -182,13 +182,7 @@ public class Gameplay : MonoBehaviour {
 				txtTest.text = "Player 2 turn \n (Set Answer)";
 			}
 		} else if (scanCount >= 3) {
-			scanCount = 0;
 			scanTime = 0f;
-
-			for (int i = 0; i < txtAnswer.Length; i++) {
-				txtAnswer [i].GetComponent<Text> ().text = "x";
-				answer0 [i].GetComponent<SpriteRenderer> ().sprite = answerSprites [0];
-			}
 
 			if (PlayerPrefs.GetString ("gameState") == "G01") {
 				PlayerPrefs.SetString ("gameState", "G02");
@@ -205,11 +199,19 @@ public class Gameplay : MonoBehaviour {
 	}
 
 	IEnumerator WaitX(float times){
-		yield return new WaitForSeconds(times);
 		if (scanCount > 0 && scanCount < 3) {
+			yield return new WaitForSeconds(times-1f);
 			scanTime = 17f;
 			startScanTime = true;
-		} 
+		} else if (scanCount >= 3) {
+			yield return new WaitForSeconds(3f);
+			scanCount = 0;
+			for (int i = 0; i < txtAnswer.Length; i++) {
+				txtAnswer [i].GetComponent<Text> ().text = "x";
+				//answer0 [i].GetComponent<SpriteRenderer> ().sprite = answerSprites [0];
+				answer0 [i].SetActive (false);
+			}
+		}
 	}
 
 }

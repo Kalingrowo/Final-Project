@@ -36,7 +36,7 @@ public class UIManager : MonoBehaviour {
 		//====
 		if (GameObject.Find ("btnPlay") != null) {
 			btnPlay = GameObject.Find ("btnPlay");
-			btnPlay.SetActive (false);
+			//btnPlay.SetActive (false);
 		}
 		if (GameObject.Find ("btnSound") != null) {
 			btnSound = GameObject.Find ("btnSound");
@@ -59,7 +59,11 @@ public class UIManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		
+		if (SceneManager.GetActiveScene().name == "Main Menu") {
+			if (Input.GetMouseButtonDown (0)) {
+				SceneManager.LoadScene ("Select Char");
+			}
+		}
 	}
 
 	public void ConfirmCharP1(){

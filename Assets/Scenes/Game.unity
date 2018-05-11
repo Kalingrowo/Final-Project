@@ -160,7 +160,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.17}
-  m_ConnectedAnchor: {x: 0, y: -0.13100003}
+  m_ConnectedAnchor: {x: 0, y: -0.13100019}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -310,7 +310,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.17}
-  m_ConnectedAnchor: {x: 0, y: -0.13100003}
+  m_ConnectedAnchor: {x: 0, y: -0.13100019}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -426,7 +426,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.008133411, y: 0.17}
-  m_ConnectedAnchor: {x: 0.008133352, y: -0.13100004}
+  m_ConnectedAnchor: {x: 0.008133434, y: -0.1310002}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -542,7 +542,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.2050004}
-  m_ConnectedAnchor: {x: 0, y: 0.20500037}
+  m_ConnectedAnchor: {x: 0, y: 0.20500031}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -667,7 +667,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300014, guid: 9c821f45f99385b4f8a63587ea40e483, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -714,7 +714,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &392086366
 RectTransform:
   m_ObjectHideFlags: 0
@@ -892,7 +892,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.010107517, y: 0.17}
-  m_ConnectedAnchor: {x: 0.010107516, y: -0.13999985}
+  m_ConnectedAnchor: {x: 0.010107514, y: -0.14000003}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1008,7 +1008,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.2050004}
-  m_ConnectedAnchor: {x: 0, y: 0.20500037}
+  m_ConnectedAnchor: {x: 0, y: 0.20500031}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1083,7 +1083,7 @@ GameObject:
   - component: {fileID: 618507314}
   - component: {fileID: 618507315}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: Game Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1117,9 +1117,9 @@ MonoBehaviour:
   player2Script: {fileID: 686212529}
   answerSprites: []
   answer0:
-  - {fileID: 844949998}
-  - {fileID: 1136662191}
   - {fileID: 1574235608}
+  - {fileID: 1136662191}
+  - {fileID: 844949998}
   txtQuiz: {fileID: 1892690621}
   txtTest: {fileID: 2045336363}
   txtCardsP1: {fileID: 683746285}
@@ -1370,7 +1370,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &691406261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1480,7 +1480,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.008133411, y: 0.17}
-  m_ConnectedAnchor: {x: 0.0081334105, y: -0.13100003}
+  m_ConnectedAnchor: {x: 0.008133373, y: -0.13099995}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1918,7 +1918,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 0.7901841}
   m_ConnectedAnchor: {x: 0, y: -1.0600591}
   m_AutoConfigureDistance: 1
-  m_Distance: 1.2404275
+  m_Distance: 1.2413783
   m_MaxDistanceOnly: 1
 --- !u!1 &878385062
 GameObject:
@@ -2255,7 +2255,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.008133411, y: 0.17}
-  m_ConnectedAnchor: {x: 0.008133373, y: -0.13100003}
+  m_ConnectedAnchor: {x: 0.008133373, y: -0.13099995}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -2436,7 +2436,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 0.7901841}
   m_ConnectedAnchor: {x: 0, y: -1.0600591}
   m_AutoConfigureDistance: 1
-  m_Distance: 1.2404275
+  m_Distance: 1.2413783
   m_MaxDistanceOnly: 1
 --- !u!233 &1136662194
 HingeJoint2D:
@@ -2715,7 +2715,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -99.100006}
+  m_AnchoredPosition: {x: 0, y: -95}
   m_SizeDelta: {x: 160, y: 57.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1309976194
@@ -2904,7 +2904,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.17}
-  m_ConnectedAnchor: {x: 0, y: -0.1309998}
+  m_ConnectedAnchor: {x: 0, y: -0.13099997}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -3109,8 +3109,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -40, y: -175.7}
-  m_SizeDelta: {x: 80, y: 60}
+  m_AnchoredPosition: {x: 278, y: 207}
+  m_SizeDelta: {x: 80, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1501629432
 MonoBehaviour:
@@ -3203,7 +3203,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.2050004}
-  m_ConnectedAnchor: {x: 0, y: 0.2050004}
+  m_ConnectedAnchor: {x: 0, y: 0.20500034}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -3378,7 +3378,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 0.7901841}
   m_ConnectedAnchor: {x: 0, y: -1.0600591}
   m_AutoConfigureDistance: 1
-  m_Distance: 1.2404273
+  m_Distance: 1.2413783
   m_MaxDistanceOnly: 1
 --- !u!233 &1574235611
 HingeJoint2D:
@@ -3514,8 +3514,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 40, y: -175.69998}
-  m_SizeDelta: {x: 80, y: 60}
+  m_AnchoredPosition: {x: 358, y: 207}
+  m_SizeDelta: {x: 80, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1601696272
 MonoBehaviour:
@@ -3572,7 +3572,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1679109596
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3726,7 +3726,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3874,7 +3874,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.010107517, y: 0.17}
-  m_ConnectedAnchor: {x: 0.010107517, y: -0.13999987}
+  m_ConnectedAnchor: {x: 0.010107516, y: -0.14000005}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -4225,7 +4225,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 7.0499907}
+  m_AnchoredPosition: {x: 0, y: -194}
   m_SizeDelta: {x: 285.2, y: 53.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2045336363
@@ -4240,7 +4240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4495,7 +4495,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.010107517, y: 0.17}
-  m_ConnectedAnchor: {x: 0.010107517, y: -0.13999985}
+  m_ConnectedAnchor: {x: 0.010107517, y: -0.14000003}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -4591,6 +4591,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -306.77515, y: 51.1}
+  m_AnchoredPosition: {x: -306.77512, y: 51.1}
   m_SizeDelta: {x: -613.5498, y: -234.9}
   m_Pivot: {x: 0.5, y: 0.5}

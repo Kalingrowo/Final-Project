@@ -16,8 +16,9 @@ public class CardsScan : MonoBehaviour {
 		// debug
 		PlayerPrefs.SetString ("gameState", "G01");
 		// --------------
-
-		gameplay = GameManager.GetComponent<Gameplay> ();
+		if(GameObject.Find("Game Manager")){
+			gameplay = GameManager.GetComponent<Gameplay> ();
+		}
 
 		/*
 		using (AndroidJavaClass javaClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
