@@ -4,63 +4,34 @@ using UnityEngine;
 
 public class SelectCharP1 : MonoBehaviour {
 
-	private List<GameObject> charList;
 	private int activeChar;
 
-	public GameObject btnConfirm;
+	//public GameObject btnConfirm;
 
 	Animator anim;
 	private Gameplay gameplay;
 
 	// Use this for initialization
 	void Start () {
-		
 		// activeChar 0 is equal to empty
-		activeChar = 0;
+		//activeChar = 0;
 		anim = GetComponent<Animator> ();
 
-		/*
-		// character list for selecting character
-		charList = new List<GameObject> ();
-		foreach (Transform t in transform) {
-			charList.Add (t.gameObject);
-			t.gameObject.SetActive (false);
-		}
-		*/
-		// Debug
-		ActivateChar (1);
-		// ---------------------
 	}
 
 	// charIndex 0 is unused
 	public void ActivateChar(int charIndex){
 		anim.SetTrigger ("Reset");
 		anim.SetInteger ("IDWizard", charIndex);
-		PlayerPrefs.SetString ("SetPlayer1", "0" + charIndex.ToString () + "5");
-		print(PlayerPrefs.GetString("SetPlayer1"));
-
-		/*
-		if (activeChar != charIndex) {
-			charList [charIndex - 1].SetActive (true);
-			activeChar = charIndex;
-
-			btnConfirm.SetActive (true);
-		} 
-		*/
+		PlayerPrefs.SetInt ("SetPlayer1", charIndex);
+		print("Player 1 : " + PlayerPrefs.GetInt("SetPlayer1"));
 	}
 
 	public void DeactivateAllChars(){
 		anim.SetTrigger ("Reset");
-
-		/*
-		foreach (Transform t in transform) {
-			t.gameObject.SetActive (false);
-		}
-		*/
 	}
 
-	// Update is called once per frame
-	void Update () {
-		
+	public void Attack(){
+		anim.SetTrigger ("Attack");
 	}
 }

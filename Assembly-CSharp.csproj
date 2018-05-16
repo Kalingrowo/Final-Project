@@ -55,8 +55,6 @@
      <Compile Include="Assets\Scripts\Main Scripts\CardsScan.cs" />
      <Compile Include="Assets\Scripts\Main Scripts\Gameplay.cs" />
      <Compile Include="Assets\Scripts\Main Scripts\GenerateQuiz.cs" />
-     <Compile Include="Assets\Scripts\Main Scripts\Player1.cs" />
-     <Compile Include="Assets\Scripts\Main Scripts\Player2.cs" />
      <Compile Include="Assets\Scripts\Main Scripts\SelectCharP1.cs" />
      <Compile Include="Assets\Scripts\Main Scripts\SelectCharP2.cs" />
      <Compile Include="Assets\Scripts\Main Scripts\UIManager.cs" />

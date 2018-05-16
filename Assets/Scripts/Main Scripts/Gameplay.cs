@@ -21,8 +21,8 @@ public class Gameplay : MonoBehaviour {
 	int curCardP1;
 	int curCardP2;
 
-	public Player1 player1Script;
-	public Player2 player2Script;
+	SelectCharP1 player1Script;
+	SelectCharP2 player2Script;
 
 	public Sprite[] answerSprites;
 
@@ -47,6 +47,9 @@ public class Gameplay : MonoBehaviour {
 		players = new int[numOfPlayer, playersData];
 		generateQuiz = this.GetComponent<GenerateQuiz> ();
 
+		player1Script = GameObject.Find ("Player 1").GetComponent<SelectCharP1> ();
+		player2Script = GameObject.Find ("Player 2").GetComponent<SelectCharP2> ();
+
 		InitializeGame ();
 	}
 
@@ -68,8 +71,8 @@ public class Gameplay : MonoBehaviour {
 
 	public void InitializeGame(){
 		// test curcards temp
-		SetPlayer (0, 1, 5);
-		SetPlayer (1, 1, 5);
+		SetPlayer (0, PlayerPrefs.GetInt("SetPlayer1"), 7);
+		SetPlayer (1, PlayerPrefs.GetInt("SetPlayer2"), 7);
 		// --
 
 		PlayerPrefs.SetString ("gameState", "G01");
@@ -83,6 +86,11 @@ public class Gameplay : MonoBehaviour {
 	public void SetPlayer(int idPlayer, int idChar, int curCards){
 		players [idPlayer, 0] = idChar;
 		players [idPlayer, 1] = curCards;
+
+		if (idPlayer == 0)
+			player1Script.ActivateChar (idChar);
+		else if (idPlayer == 1)
+			player2Script.ActivateChar (idChar);
 	}
 
 	public void SetCurCards(int idPlayer, int point){
