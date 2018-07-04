@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "School of Lord", "Assembly-
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "School of Lord", "Assembly-CSharp-firstpass.csproj", "{414957A4-2C60-95C7-FCCD-588BEBAB4902}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "School of Lord", "Assembly-CSharp-Editor.csproj", "{EE6EEC9D-21DD-F135-186E-0DE848DF013B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{414957A4-2C60-95C7-FCCD-588BEBAB4902}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{414957A4-2C60-95C7-FCCD-588BEBAB4902}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{414957A4-2C60-95C7-FCCD-588BEBAB4902}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE6EEC9D-21DD-F135-186E-0DE848DF013B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE6EEC9D-21DD-F135-186E-0DE848DF013B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE6EEC9D-21DD-F135-186E-0DE848DF013B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE6EEC9D-21DD-F135-186E-0DE848DF013B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
