@@ -18,12 +18,6 @@ public class callAndroidPlugin : MonoBehaviour {
 		
 	}
 
-	/*
-	public void MessageReceiver(string msg){
-		txtTittle.text = msg;
-	}
-	*/
-
 	public void TestOnCreate(){
 		using (AndroidJavaClass javaClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
 		{

@@ -4,53 +4,46 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Gameplay : MonoBehaviour {
-	// 0,0 - 0,x = Player 1
-	// 1,0 - 1,x = Player 1
-	// data ke 0 = id char		: 1 - 5 (ice, fire, dkk)
-	// data ke 1 = curNegPoint	: 1 - 10 
 	int[,] players;
-
 	int numOfPlayer = 2;
 	int playersData = 3;
-
 	int scanCount = 0;
-
 	float gameTime, scanTime;
 	bool startScanTime = false;
 
-	int curCardP1;
-	int curCardP2;
-
-	SelectCharP1 player1Script;
-	SelectCharP2 player2Script;
-
-	public Sprite[] answerSprites;
-
-	public GameObject[] answer0;
-	public Text txtQuiz, txtTest, txtCardsP1, txtCardsP2;
-	public GameObject panelCharP1, panelCharP2, panelPointP1, panelPointP2;
 	private GenerateQuiz generateQuiz;
+
+	public Sprite[] answerCapsules;
+	public Sprite[] cardNumbers;
+
+	public GameObject player1;
+	public GameObject player2;
+	public GameObject oprd1, oprt, oprd2;
+	public GameObject[] answer;
+	public Text txtQuiz, txtTest, txtCardsP1, txtCardsP2;
+	public GameObject cardsP1, cardsP2;
+	public GameObject btnGenerate;
 	public GameObject[] txtAnswer;
 	public Text txtScanTime, txtGameTime;
 
-	public Button btnSkipAnswer;
-
-
 	// Use this for initialization
 	void Start () {
-		Screen.orientation = ScreenOrientation.LandscapeLeft;
-		for (int i = 0; i < answer0.Length; i++) {
-			answer0 [i].SetActive (false);
-		}
+		// initiate game state
+		PlayerPrefs.SetString ("gameState", "G01");
 
-		answerSprites = Resources.LoadAll<Sprite> ("Images/Lava Maps/Numbers");
+		// initiate
 		players = new int[numOfPlayer, playersData];
 		generateQuiz = this.GetComponent<GenerateQuiz> ();
 
-		player1Script = GameObject.Find ("Player 1").GetComponent<SelectCharP1> ();
-		player2Script = GameObject.Find ("Player 2").GetComponent<SelectCharP2> ();
+		// set player char and cards
+		SetPlayer (0, PlayerPrefs.GetInt("SetPlayer1"), 9);
+		SetPlayer (1, PlayerPrefs.GetInt("SetPlayer2"), 7);
 
-		InitializeGame ();
+		// get sprite from folder
+		answerCapsules = Resources.LoadAll<Sprite> ("Images/Capsules");
+		cardNumbers = Resources.LoadAll<Sprite> ("Images/Numbers");
+
+		GenerateHUD ();
 	}
 
 	void Update(){
@@ -65,70 +58,136 @@ public class Gameplay : MonoBehaviour {
 		}
 		gameTime += Time.deltaTime;
 
-		txtScanTime.text = ((int)scanTime).ToString();
-		txtGameTime.text = ((int)gameTime).ToString();
-	}
-
-	public void InitializeGame(){
-		// test curcards temp
-		SetPlayer (0, PlayerPrefs.GetInt("SetPlayer1"), 7);
-		SetPlayer (1, PlayerPrefs.GetInt("SetPlayer2"), 7);
-		// --
-
-		PlayerPrefs.SetString ("gameState", "G01");
-		// call prefab char and display player's char
-		panelCharP1.SetActive(true);
-		panelCharP2.SetActive(true);
-
-		GenerateHUD ();
 	}
 
 	public void SetPlayer(int idPlayer, int idChar, int curCards){
 		players [idPlayer, 0] = idChar;
 		players [idPlayer, 1] = curCards;
 
-		if (idPlayer == 0)
-			player1Script.ActivateChar (idChar);
-		else if (idPlayer == 1)
-			player2Script.ActivateChar (idChar);
+		if (idPlayer == 0) {
+			player1.GetComponent<SelectCharP1> ().ActivateChar (idChar);
+		} else if (idPlayer == 1){
+			player2.GetComponent<SelectCharP2> ().ActivateChar (idChar);
+		}
 	}
 
-	public void SetCurCards(int idPlayer, int point){
+	public void SetCurCards(int idPlayer, int cards){
 		int temp = players [idPlayer, 1];
-		players [idPlayer, 1] = temp + point;
+		players [idPlayer, 1] = temp + cards;
 	}
 
 	public int GetCurCards(int idPlayer){
 		return (players [idPlayer, 1]);
 	}
 		
-	public void SetQuiz(int idPlayer, int x){
-		scanCount += 1;
-		txtQuiz.text = generateQuiz.SetQuiz (x);
+	public void SetQuiz(){
+		int _Opr1, _Opr2;
+		//string _Oprt;
 
-		GenerateHUD ();
+		if (scanCount == 0) {
+			scanCount += 1;
+			txtQuiz.text = generateQuiz.SetQuiz (Random.Range (1, 9));
+			_Opr1 = int.Parse (txtQuiz.text.Substring (0, 1));
+			_Opr2 = int.Parse (txtQuiz.text.Substring (2, 1));
+			Debug.Log ("ScanCount : " + scanCount);
+			Debug.Log ("_Opr1 : " + _Opr1);
+			Debug.Log ("_Opr2 : " + _Opr2);
+			UpdateQuizNumb (_Opr1, _Opr2);
+
+			GenerateHUD ();
+		} else {
+			SkipAnswer ();
+		}
 	}
 
-	public void SetAnswer(int idPlayer, int answer){
+	public void UpdateQuizNumb(int _Opr1, int _Opr2){
+		switch (_Opr1) {
+		case 0:
+			oprd1.GetComponent<SpriteRenderer> ().sprite = cardNumbers [0];
+			break;
+		case 1:
+			oprd1.GetComponent<SpriteRenderer> ().sprite = cardNumbers [1];
+			break;
+		case 2:
+			oprd1.GetComponent<SpriteRenderer> ().sprite = cardNumbers [2];
+			break;
+		case 3:
+			oprd1.GetComponent<SpriteRenderer> ().sprite = cardNumbers [3];
+			break;
+		case 4:
+			oprd1.GetComponent<SpriteRenderer> ().sprite = cardNumbers [4];
+			break;
+		case 5:
+			oprd1.GetComponent<SpriteRenderer> ().sprite = cardNumbers [5];
+			break;
+		case 6:
+			oprd1.GetComponent<SpriteRenderer> ().sprite = cardNumbers [6];
+			break;
+		case 7:
+			oprd1.GetComponent<SpriteRenderer> ().sprite = cardNumbers [7];
+			break;
+		case 8:
+			oprd1.GetComponent<SpriteRenderer> ().sprite = cardNumbers [8];
+			break;
+		case 9:
+			oprd1.GetComponent<SpriteRenderer> ().sprite = cardNumbers [9];
+			break;
+		}
+
+		switch (_Opr2) {
+		case 0:
+			oprd2.GetComponent<SpriteRenderer> ().sprite = cardNumbers [0];
+			break;
+		case 1:
+			oprd2.GetComponent<SpriteRenderer> ().sprite = cardNumbers [1];
+			break;
+		case 2:
+			oprd2.GetComponent<SpriteRenderer> ().sprite = cardNumbers [2];
+			break;
+		case 3:
+			oprd2.GetComponent<SpriteRenderer> ().sprite = cardNumbers [3];
+			break;
+		case 4:
+			oprd2.GetComponent<SpriteRenderer> ().sprite = cardNumbers [4];
+			break;
+		case 5:
+			oprd2.GetComponent<SpriteRenderer> ().sprite = cardNumbers [5];
+			break;
+		case 6:
+			oprd2.GetComponent<SpriteRenderer> ().sprite = cardNumbers [6];
+			break;
+		case 7:
+			oprd2.GetComponent<SpriteRenderer> ().sprite = cardNumbers [7];
+			break;
+		case 8:
+			oprd2.GetComponent<SpriteRenderer> ().sprite = cardNumbers [8];
+			break;
+		case 9:
+			oprd2.GetComponent<SpriteRenderer> ().sprite = cardNumbers [9];
+			break;
+		}
+	}
+
+	public void SetAnswer(int idPlayer, int answerNumb){
 		scanCount += 1;
 		int wrong = 0;
 		int[] quizResult = new int[3];
 		quizResult = generateQuiz.GetQuizResult();
 
 		if (idPlayer == 0) {
-			player1Script.Attack ();
+			player1.GetComponent<SelectCharP1>().Attack ();
 		} else if (idPlayer == 1) {
-			player2Script.Attack ();
+			player2.GetComponent<SelectCharP2>().Attack ();
 		}
 
 		for (int i = 0; i < 3; i++) {
-			if (answer == quizResult [i]) {
+			if (answerNumb == quizResult [i]) {
 				if (txtAnswer [i].GetComponent<Text> ().text == "x") {
 					// answer true
-					txtAnswer [i].GetComponent<Text> ().text = answer.ToString (); 
-					answer0 [i].GetComponent<SpriteRenderer> ().sprite = answerSprites [answer];
-					answer0 [i].gameObject.transform.localPosition = new Vector3 (0.5f, 0f, 0f);
-					answer0 [i].SetActive (true);
+					txtAnswer [i].GetComponent<Text> ().text = answerNumb.ToString (); 
+					answer [i].GetComponent<SpriteRenderer> ().sprite = answerCapsules [answerNumb];
+					//answer [i].gameObject.transform.localPosition = new Vector3 (0.5f, 0f, 0f);
+					answer [i].SetActive (true);
 					break;
 				} else {
 					// answer has been used
@@ -170,14 +229,18 @@ public class Gameplay : MonoBehaviour {
 	}
 
 	public void GenerateHUD(){
-		txtCardsP1.text = GetCurCards (0).ToString();
-		txtCardsP2.text = GetCurCards (1).ToString();
+		// update each player's cards
+		SetCards (0);
+		SetCards (1);
 
+		// set a wait time to change state
 		startScanTime = false;
 		scanTime = 0f;
 		StartCoroutine ("WaitX", 2f);
 
 		if (scanCount == 1) {
+			// change generate button to skip button
+			btnGenerate.GetComponent<Image> ().sprite = btnGenerate.transform.GetChild (0).GetComponent<Image> ().sprite;
 			if (PlayerPrefs.GetString ("gameState") == "G01") {
 				txtTest.text = "Player 2 turn \n (Set Answer)";
 			} else if (PlayerPrefs.GetString ("gameState") == "G02") {
@@ -191,6 +254,8 @@ public class Gameplay : MonoBehaviour {
 			}
 		} else if (scanCount >= 3) {
 			scanTime = 0f;
+			// change skip button to generate button 
+			btnGenerate.GetComponent<Image> ().sprite = btnGenerate.transform.GetChild (1).GetComponent<Image> ().sprite;
 
 			if (PlayerPrefs.GetString ("gameState") == "G01") {
 				PlayerPrefs.SetString ("gameState", "G02");
@@ -202,22 +267,97 @@ public class Gameplay : MonoBehaviour {
 		}
 	}
 
+	// update player's cards
+	public void SetCards(int i){
+		if (i == 0) {
+			switch (GetCurCards (0)) {
+			case 0:
+				cardsP1.gameObject.GetComponent<SpriteRenderer> ().sprite = cardNumbers [0];
+				break;
+			case 1:
+				cardsP1.gameObject.GetComponent<SpriteRenderer> ().sprite = cardNumbers [1];
+				break;
+			case 2:
+				cardsP1.gameObject.GetComponent<SpriteRenderer> ().sprite = cardNumbers [2];
+				break;
+			case 3:
+				cardsP1.gameObject.GetComponent<SpriteRenderer> ().sprite = cardNumbers [3];
+				break;
+			case 4:
+				cardsP1.gameObject.GetComponent<SpriteRenderer> ().sprite = cardNumbers [4];
+				break;
+			case 5:
+				cardsP1.gameObject.GetComponent<SpriteRenderer> ().sprite = cardNumbers [5];
+				break;
+			case 6:
+				cardsP1.gameObject.GetComponent<SpriteRenderer> ().sprite = cardNumbers [6];
+				break;
+			case 7:
+				cardsP1.gameObject.GetComponent<SpriteRenderer> ().sprite = cardNumbers [7];
+				break;
+			case 8:
+				cardsP1.gameObject.GetComponent<SpriteRenderer> ().sprite = cardNumbers [8];
+				break;
+			case 9:
+				cardsP1.gameObject.GetComponent<SpriteRenderer> ().sprite = cardNumbers [9];
+				break;
+			}
+		} else if (i == 1) {
+			switch (GetCurCards (1)) {
+			case 0:
+				cardsP2.gameObject.GetComponent<SpriteRenderer> ().sprite = cardNumbers [0];
+				break;
+			case 1:
+				cardsP2.gameObject.GetComponent<SpriteRenderer> ().sprite = cardNumbers [1];
+				break;
+			case 2:
+				cardsP2.gameObject.GetComponent<SpriteRenderer> ().sprite = cardNumbers [2];
+				break;
+			case 3:
+				cardsP2.gameObject.GetComponent<SpriteRenderer> ().sprite = cardNumbers [3];
+				break;
+			case 4:
+				cardsP2.gameObject.GetComponent<SpriteRenderer> ().sprite = cardNumbers [4];
+				break;
+			case 5:
+				cardsP2.gameObject.GetComponent<SpriteRenderer> ().sprite = cardNumbers [5];
+				break;
+			case 6:
+				cardsP2.gameObject.GetComponent<SpriteRenderer> ().sprite = cardNumbers [6];
+				break;
+			case 7:
+				cardsP2.gameObject.GetComponent<SpriteRenderer> ().sprite = cardNumbers [7];
+				break;
+			case 8:
+				cardsP2.gameObject.GetComponent<SpriteRenderer> ().sprite = cardNumbers [8];
+				break;
+			case 9:
+				cardsP2.gameObject.GetComponent<SpriteRenderer> ().sprite = cardNumbers [9];
+				break;
+			}
+		}
+	}
+
 	public int GetScanCount(){
 		return scanCount;
 	}
 
 	IEnumerator WaitX(float times){
 		if (scanCount > 0 && scanCount < 3) {
+			btnGenerate.GetComponent<Button> ().interactable = false;
 			yield return new WaitForSeconds(times-1f);
+			btnGenerate.GetComponent<Button> ().interactable = true;
 			scanTime = 17f;
 			startScanTime = true;
 		} else if (scanCount >= 3) {
+			btnGenerate.GetComponent<Button> ().interactable = false;
 			yield return new WaitForSeconds(3f);
+			btnGenerate.GetComponent<Button> ().interactable = true;
 			scanCount = 0;
 			for (int i = 0; i < txtAnswer.Length; i++) {
 				txtAnswer [i].GetComponent<Text> ().text = "x";
 				//answer0 [i].GetComponent<SpriteRenderer> ().sprite = answerSprites [0];
-				answer0 [i].SetActive (false);
+				//answer0 [i].SetActive (false);
 			}
 		}
 	}

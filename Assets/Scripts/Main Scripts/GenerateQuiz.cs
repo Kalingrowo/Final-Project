@@ -19,7 +19,8 @@ public class GenerateQuiz : MonoBehaviour {
 	public string SetQuiz(int x){
 		int resultTemp;
 		int randNumb = Random.Range (5, 9);
-		string quiz = x + " x " + randNumb + " = ";
+		//string quiz = x + " x " + randNumb + " = ";
+		string quiz = x + "," + randNumb + ",";
 
 		resultTemp = randNumb * x;
 		if (resultTemp < 10) {

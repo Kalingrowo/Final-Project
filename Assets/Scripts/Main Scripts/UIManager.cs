@@ -9,7 +9,6 @@ public class UIManager : MonoBehaviour {
 
 	GameObject OnBGM, OffBGM;
 
-	int x;
 	bool BGM = true;
 
 	public GameObject GameManager;
@@ -17,6 +16,8 @@ public class UIManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+		Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
 		if (GameManager != null) {
 			gameplay = GameManager.GetComponent<Gameplay> ();
@@ -53,28 +54,26 @@ public class UIManager : MonoBehaviour {
 			btnConfirm2 = GameObject.Find ("btnConfirm2");
 		}
 
-		//====
-		x = 50;
 	}
 
 	// Update is called once per frame
 	void Update () {
-		if (SceneManager.GetActiveScene().name == "Main Menu") {
-			if (Input.GetMouseButtonDown (0)) {
-				SceneManager.LoadScene ("Select Char");
-			}
+		if (Input.GetMouseButtonDown (0)) {
+			if (SceneManager.GetActiveScene ().name == "Main Menu") {
+				SceneManager.LoadScene ("Select Char (Single) 1");
+			} 
 		}
+
+		if (Input.GetKey (KeyCode.Escape))
+			Application.Quit ();
 	}
 
 	public void ConfirmCharP1(){
-		PlayerPrefs.SetString ("gameState", "S02");
-		btnConfirm1.SetActive (false);
+		SceneManager.LoadScene ("Select Char (Single) 2");
 	}
 
 	public void ConfirmCharP2(){
-		PlayerPrefs.SetString ("gameState", "Play");
-		btnConfirm2.SetActive (false);
-		btnPlay.SetActive (true);
+		SceneManager.LoadScene ("Game");
 	}
 
 	public void SetBGM(){
@@ -104,4 +103,5 @@ public class UIManager : MonoBehaviour {
 	public void GoMenu(){
 		SceneManager.LoadScene ("Main Menu");
 	}
+
 }

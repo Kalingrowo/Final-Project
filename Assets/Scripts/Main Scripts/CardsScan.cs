@@ -20,24 +20,9 @@ public class CardsScan : MonoBehaviour {
 			gameplay = GameManager.GetComponent<Gameplay> ();
 		}
 
-		/*
-		using (AndroidJavaClass javaClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
-		{
-			using (AndroidJavaObject activity = javaClass.GetStatic<AndroidJavaObject>("currentActivity"))
-			{
-				AndroidJavaObject JO = new AndroidJavaObject("com.nfc.kalingrowo.unityplugin.pluginClass");
-				//JO.Call("getDataA", activity);
-				//txtMenu.text = JO.CallStatic<string> ("getDataB", activity);
-				//gameState = JO.Call<string> ("getDataB", activity);
-			}
-		}*/
+
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-		
+
 	// NFC callback
 	void MessageReceiver (string result)
 	{
@@ -78,7 +63,7 @@ public class CardsScan : MonoBehaviour {
 		} else if (PlayerPrefs.GetString ("gameState") == "G01") {
 			if (gameplay.GetScanCount () == 0) {
 				// player 1 scan quiz's reference
-				gameplay.SetQuiz (0, int.Parse(result));
+				gameplay.SetQuiz ();
 			} else if (gameplay.GetScanCount () == 1) {
 				// player 2 input the answer
 				gameplay.SetAnswer(1, int.Parse(result));
@@ -90,7 +75,7 @@ public class CardsScan : MonoBehaviour {
 		} else if (PlayerPrefs.GetString ("gameState") == "G02") {
 			if (gameplay.GetScanCount () == 0) {
 				// player 2 scan quiz's reference
-				gameplay.SetQuiz (1, int.Parse(result));
+				gameplay.SetQuiz ();
 			} else if (gameplay.GetScanCount () == 1) {
 				// player 1 input the answer
 				gameplay.SetAnswer(0, int.Parse(result));
