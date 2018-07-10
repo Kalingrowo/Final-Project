@@ -24,10 +24,13 @@ public class GenerateQuiz : MonoBehaviour {
 
 		resultTemp = randNumb * x;
 		if (resultTemp < 10) {
-			result [0] = int.Parse(resultTemp.ToString () [0].ToString());
+			result [0] = 10;
+			result [1] = 0;
+			result [2] = int.Parse(resultTemp.ToString () [0].ToString());
 		} else if (resultTemp < 100) {
-			result [0] = int.Parse(resultTemp.ToString () [0].ToString());
-			result [1] = int.Parse(resultTemp.ToString () [1].ToString());
+			result [0] = 10;
+			result [1] = int.Parse(resultTemp.ToString () [0].ToString());
+			result [2] = int.Parse(resultTemp.ToString () [1].ToString());
 		} else if (resultTemp < 1000) {
 			result [0] = int.Parse(resultTemp.ToString () [0].ToString());
 			result [1] = int.Parse(resultTemp.ToString () [1].ToString());

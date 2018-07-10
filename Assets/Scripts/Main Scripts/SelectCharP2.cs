@@ -19,7 +19,7 @@ public class SelectCharP2 : MonoBehaviour {
 
 	// charIndex 0 is unused
 	public void ActivateChar(int charIndex){
-		// re-deklaration anim to give acces from gameplay script
+		// re-declaration anim to give acces from gameplay script
 		anim = GetComponent<Animator> ();
 
 		anim.SetTrigger ("Reset");

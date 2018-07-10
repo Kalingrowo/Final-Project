@@ -115,7 +115,7 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.Spa
 eced8c8958fc8778d1b8604e9122d164 Assembly-CSharp.dll:Anima2D.IkLimb2D
 b686c64e896a5329feb8c0848d867f2b Assembly-CSharp.dll:.SelectCharP1
 bb21ecf26db1f02f72231857956971b6 Assembly-CSharp.dll:Anima2D.SpriteMesh
-dcf0a4e5530c5aece61bea3a64fc57c3 Assembly-CSharp.dll:.UIManager
+e77ee4fecaefed1fb1bc89e1d0e70589 Assembly-CSharp.dll:.UIManager
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.CharacterMotion
 542530e11789dc403468901628b3f4a8 Assembly-CSharp.dll:Anima2D.Bone2D
 68a6470d9b146708efff0ffee7d49c66 Assembly-CSharp.dll:.SpriteCycle
@@ -134,7 +134,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 73843688b51256aed059f049c540bca8 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 528ea1fd7c01796fc60c4e2f172ea229 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
 e10245ebf6407bde38e71ee3699f57d2 Assembly-CSharp.dll:.SpriteCycleParallax
-5babda95368038e42a289057e26673bb Assembly-CSharp.dll:.Gameplay
+ba45c5c17295fa53f38b1f4fd87385a1 Assembly-CSharp.dll:.Gameplay
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.GenerateQuiz
 6de27d44fd8221c044725607ba9fb429 Assembly-CSharp.dll:Anima2D.Control
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.PlayModeRunnerCallback

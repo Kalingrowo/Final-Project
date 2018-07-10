@@ -63,7 +63,7 @@ public class CardsScan : MonoBehaviour {
 		} else if (PlayerPrefs.GetString ("gameState") == "G01") {
 			if (gameplay.GetScanCount () == 0) {
 				// player 1 scan quiz's reference
-				gameplay.SetQuiz ();
+				//gameplay.SetQuiz ();
 			} else if (gameplay.GetScanCount () == 1) {
 				// player 2 input the answer
 				gameplay.SetAnswer(1, int.Parse(result));
@@ -75,7 +75,7 @@ public class CardsScan : MonoBehaviour {
 		} else if (PlayerPrefs.GetString ("gameState") == "G02") {
 			if (gameplay.GetScanCount () == 0) {
 				// player 2 scan quiz's reference
-				gameplay.SetQuiz ();
+				//gameplay.SetQuiz ();
 			} else if (gameplay.GetScanCount () == 1) {
 				// player 1 input the answer
 				gameplay.SetAnswer(0, int.Parse(result));

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Gameplay : MonoBehaviour {
 	int[,] players;
@@ -9,6 +10,7 @@ public class Gameplay : MonoBehaviour {
 	int playersData = 3;
 	int scanCount = 0;
 	float gameTime, scanTime;
+	bool endGame = false;
 	bool startScanTime = false;
 
 	private GenerateQuiz generateQuiz;
@@ -23,20 +25,21 @@ public class Gameplay : MonoBehaviour {
 	public Text txtQuiz, txtTest, txtCardsP1, txtCardsP2;
 	public GameObject cardsP1, cardsP2;
 	public GameObject btnGenerate;
-	public GameObject[] txtAnswer;
+	//public GameObject[] txtAnswer;
 	public Text txtScanTime, txtGameTime;
 
 	// Use this for initialization
 	void Start () {
 		// initiate game state
 		PlayerPrefs.SetString ("gameState", "G01");
+		endGame = false;
 
 		// initiate
 		players = new int[numOfPlayer, playersData];
 		generateQuiz = this.GetComponent<GenerateQuiz> ();
 
 		// set player char and cards
-		SetPlayer (0, PlayerPrefs.GetInt("SetPlayer1"), 9);
+		SetPlayer (0, PlayerPrefs.GetInt("SetPlayer1"), 7);
 		SetPlayer (1, PlayerPrefs.GetInt("SetPlayer2"), 7);
 
 		// get sprite from folder
@@ -44,6 +47,7 @@ public class Gameplay : MonoBehaviour {
 		cardNumbers = Resources.LoadAll<Sprite> ("Images/Numbers");
 
 		GenerateHUD ();
+		CleanGameSpace ();
 	}
 
 	void Update(){
@@ -57,7 +61,11 @@ public class Gameplay : MonoBehaviour {
 			}
 		}
 		gameTime += Time.deltaTime;
-
+		if (gameTime > 600f || GetCurCards(0) <= 0 || GetCurCards(1) <= 0 ) {
+			endGame = true;
+			EndCondition ();
+		}
+		Debug.Log ("Game Time : " + gameTime);			
 	}
 
 	public void SetPlayer(int idPlayer, int idChar, int curCards){
@@ -82,21 +90,24 @@ public class Gameplay : MonoBehaviour {
 		
 	public void SetQuiz(){
 		int _Opr1, _Opr2;
-		//string _Oprt;
 
-		if (scanCount == 0) {
-			scanCount += 1;
-			txtQuiz.text = generateQuiz.SetQuiz (Random.Range (1, 9));
-			_Opr1 = int.Parse (txtQuiz.text.Substring (0, 1));
-			_Opr2 = int.Parse (txtQuiz.text.Substring (2, 1));
-			Debug.Log ("ScanCount : " + scanCount);
-			Debug.Log ("_Opr1 : " + _Opr1);
-			Debug.Log ("_Opr2 : " + _Opr2);
-			UpdateQuizNumb (_Opr1, _Opr2);
-
-			GenerateHUD ();
+		if (endGame == true) {
+			EndGame ();
 		} else {
-			SkipAnswer ();
+			if (scanCount == 0) {
+				scanCount += 1;
+				txtQuiz.text = generateQuiz.SetQuiz (Random.Range (1, 9));
+				_Opr1 = int.Parse (txtQuiz.text.Substring (0, 1));
+				_Opr2 = int.Parse (txtQuiz.text.Substring (2, 1));
+				Debug.Log ("ScanCount : " + scanCount);
+				Debug.Log ("_Opr1 : " + _Opr1);
+				Debug.Log ("_Opr2 : " + _Opr2);
+				UpdateQuizNumb (_Opr1, _Opr2);
+
+				GenerateHUD ();
+			} else {
+				SkipAnswer ();
+			}
 		}
 	}
 
@@ -168,6 +179,10 @@ public class Gameplay : MonoBehaviour {
 		}
 	}
 
+	public void SetTestAns(int x){
+		SetAnswer (0, x);
+	}
+
 	public void SetAnswer(int idPlayer, int answerNumb){
 		scanCount += 1;
 		int wrong = 0;
@@ -182,49 +197,30 @@ public class Gameplay : MonoBehaviour {
 
 		for (int i = 0; i < 3; i++) {
 			if (answerNumb == quizResult [i]) {
-				if (txtAnswer [i].GetComponent<Text> ().text == "x") {
-					// answer true
-					txtAnswer [i].GetComponent<Text> ().text = answerNumb.ToString (); 
-					answer [i].GetComponent<SpriteRenderer> ().sprite = answerCapsules [answerNumb];
-					//answer [i].gameObject.transform.localPosition = new Vector3 (0.5f, 0f, 0f);
-					answer [i].SetActive (true);
-					break;
-				} else {
-					// answer has been used
-					wrong++;
-				}
+				answer [i].GetComponent<SpriteRenderer> ().sprite = answerCapsules [answerNumb];
+				SetCurCards (idPlayer, -1);
+				break;
 			} else {
 				wrong++;
 			}
-
 		}
 
-		if (wrong >= 2) {
-			// wrong answer
+		// if wrong answer, player's current cards will increase
+		// and another player's current cards will decrease
+		if (wrong > 2) {
 			SetCurCards (idPlayer, 1);
 			if (idPlayer == 0) {
 				SetCurCards (1, -1);
 			} else {
 				SetCurCards (0, -1);
 			}
-		} else {
-			SetCurCards (idPlayer, -1);
-		}
+		} 
 		wrong = 0;
-
 		GenerateHUD ();
-
 	}
 
 	public void SkipAnswer(){
 		scanCount += 1;
-		/*
-		//Debug
-		player1Script.Attack ();
-		answer0 [0].gameObject.transform.localPosition = new Vector3 (0.4f, 0f, 0f);
-		answer0 [0].SetActive (true);
-		//-----
-		*/
 		GenerateHUD ();
 	}
 
@@ -338,8 +334,39 @@ public class Gameplay : MonoBehaviour {
 		}
 	}
 
+	public void CleanGameSpace(){
+		scanCount = 0;
+		UpdateQuizNumb (0, 0);
+		for (int i = 0; i < answer.Length; i++) {
+			Debug.Log (i);
+			answer [i].GetComponent<SpriteRenderer> ().sprite = answerCapsules [10];
+		}
+	}
+
 	public int GetScanCount(){
 		return scanCount;
+	}
+
+	public void EndCondition(){
+		// check who is the winner by the less current cards
+		if (GetCurCards (0) < GetCurCards (1))
+			PlayerPrefs.SetInt ("Winner", 0);
+		else if (GetCurCards (1) < GetCurCards (0))
+			PlayerPrefs.SetInt ("Winner", 1);
+		else
+			PlayerPrefs.SetInt ("Winner", 7);
+		CleanGameSpace();
+		btnGenerate.GetComponent<Image> ().sprite = btnGenerate.transform.GetChild (2).GetComponent<Image> ().sprite;
+		btnGenerate.GetComponent<Button> ().interactable = true;
+	}
+
+	public void EndGame(){
+		if(PlayerPrefs.GetInt("Winner") == 0)
+			SceneManager.LoadScene ("Win 1");
+		else if(PlayerPrefs.GetInt("Winner") == 1)
+			SceneManager.LoadScene ("Win 2");
+		else if(PlayerPrefs.GetInt("Winner") == 7)
+			SceneManager.LoadScene ("Win Draw");
 	}
 
 	IEnumerator WaitX(float times){
@@ -353,12 +380,9 @@ public class Gameplay : MonoBehaviour {
 			btnGenerate.GetComponent<Button> ().interactable = false;
 			yield return new WaitForSeconds(3f);
 			btnGenerate.GetComponent<Button> ().interactable = true;
-			scanCount = 0;
-			for (int i = 0; i < txtAnswer.Length; i++) {
-				txtAnswer [i].GetComponent<Text> ().text = "x";
-				//answer0 [i].GetComponent<SpriteRenderer> ().sprite = answerSprites [0];
-				//answer0 [i].SetActive (false);
-			}
+
+			// clean game space
+			CleanGameSpace();
 		}
 	}
 
