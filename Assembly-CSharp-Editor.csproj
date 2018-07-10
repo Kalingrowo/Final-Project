@@ -191,6 +191,9 @@
      <Compile Include="Assets\Anima2D\Scripts\Editor\VertexManipulator\VertexManipulator.cs" />
      <Compile Include="Assets\Anima2D\Scripts\Editor\WeightEditor.cs" />
      <Compile Include="Assets\Anima2D\Scripts\Editor\WindowEditorTool.cs" />
+     <Compile Include="Assets\Store Pack\UI_Test\Script\Editor\ImageEffects\AntialiasingEditor.cs" />
+     <Compile Include="Assets\Store Pack\UI_Test\Script\Editor\ImageEffects\BloomEditor.cs" />
+     <Compile Include="Assets\Store Pack\UI_Test\Script\Editor\ImageEffects\NoiseAndGrainEditor.cs" />
      <None Include="Assets\Store Pack\UI_Test\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Store Pack\UI_Test\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
      <None Include="Assets\Store Pack\UI_Test\Script\UI Particles Shaders\UI Particle Premultiply Blend.shader" />

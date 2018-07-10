@@ -2,12 +2,13 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Main Scripts\Gameplay.cs">
     <Files>
-      <File FileName="Assets\Scripts\Main Scripts\CardsScan.cs" Line="76" Column="40" />
-      <File FileName="Assets\Scripts\Main Scripts\Gameplay.cs" Line="404" Column="21" />
-      <File FileName="Assets\Scripts\Main Scripts\GenerateQuiz.cs" Line="31" Column="19" />
-      <File FileName="Assets\Scripts\Main Scripts\SelectCharP1.cs" Line="23" Column="12" />
+      <File FileName="Assets\Scripts\Main Scripts\CardsScan.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Main Scripts\Gameplay.cs" Line="204" Column="36" />
+      <File FileName="Assets\Scripts\Main Scripts\GenerateQuiz.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Main Scripts\SelectCharP1.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Main Scripts\SelectCharP2.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Main Scripts\UIManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Main Scripts\FollowPath.cs" Line="25" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

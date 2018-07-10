@@ -18,6 +18,8 @@ public class Gameplay : MonoBehaviour {
 	public Sprite[] answerCapsules;
 	public Sprite[] cardNumbers;
 
+	public GameObject answer1;
+	public GameObject answer2;
 	public GameObject player1Halo;
 	public GameObject player2Halo;
 	public GameObject player1;
@@ -35,6 +37,8 @@ public class Gameplay : MonoBehaviour {
 		// initiate game state
 		PlayerPrefs.SetString ("gameState", "G01");
 		endGame = false;
+		answer1.SetActive (false);
+		answer2.SetActive (false);
 
 		// initiate
 		players = new int[numOfPlayer, playersData];
@@ -193,8 +197,12 @@ public class Gameplay : MonoBehaviour {
 
 		if (idPlayer == 0) {
 			player1.GetComponent<SelectCharP1>().Attack ();
+			answer1.GetComponent<SpriteRenderer> ().sprite = answerCapsules [answerNumb];
+			answer1.SetActive (true);
 		} else if (idPlayer == 1) {
 			player2.GetComponent<SelectCharP2>().Attack ();
+			answer2.GetComponent<SpriteRenderer> ().sprite = answerCapsules [answerNumb];
+			answer2.SetActive (true);
 		}
 
 		for (int i = 0; i < 3; i++) {
@@ -222,6 +230,10 @@ public class Gameplay : MonoBehaviour {
 	}
 
 	public void SkipAnswer(){
+
+		answer1.SetActive (true);
+		answer2.SetActive (true);
+
 		scanCount += 1;
 		GenerateHUD ();
 	}

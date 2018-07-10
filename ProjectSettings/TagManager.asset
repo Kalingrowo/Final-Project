@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Waypoint
   layers:
   - Default
   - TransparentFX
@@ -13,7 +14,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Front UI
   - 
   - 
   - 
@@ -38,6 +39,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Front UI
+    uniqueID: 634090835
+    locked: 0
+  - name: UI
+    uniqueID: 3014615419
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
