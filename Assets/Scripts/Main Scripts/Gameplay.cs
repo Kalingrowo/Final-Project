@@ -18,6 +18,8 @@ public class Gameplay : MonoBehaviour {
 	public Sprite[] answerCapsules;
 	public Sprite[] cardNumbers;
 
+	public GameObject player1Halo;
+	public GameObject player2Halo;
 	public GameObject player1;
 	public GameObject player2;
 	public GameObject oprd1, oprt, oprd2;
@@ -239,14 +241,26 @@ public class Gameplay : MonoBehaviour {
 			btnGenerate.GetComponent<Image> ().sprite = btnGenerate.transform.GetChild (0).GetComponent<Image> ().sprite;
 			if (PlayerPrefs.GetString ("gameState") == "G01") {
 				txtTest.text = "Player 2 turn \n (Set Answer)";
+				// activate player turn indicator
+				player1Halo.SetActive (false);
+				player2Halo.SetActive (true);
 			} else if (PlayerPrefs.GetString ("gameState") == "G02") {
 				txtTest.text = "Player 1 turn \n (Set Answer)";
+				// activate player turn indicator
+				player2Halo.SetActive (false);
+				player1Halo.SetActive (true);
 			}
 		} else if (scanCount == 2) {
 			if (PlayerPrefs.GetString ("gameState") == "G01") {
 				txtTest.text = "Player 1 turn \n (Set Answer)";
+				// activate player turn indicator
+				player2Halo.SetActive (false);
+				player1Halo.SetActive (true);
 			} else if (PlayerPrefs.GetString ("gameState") == "G02") {
 				txtTest.text = "Player 2 turn \n (Set Answer)";
+				// activate player turn indicator
+				player1Halo.SetActive (false);
+				player2Halo.SetActive (true);
 			}
 		} else if (scanCount >= 3) {
 			scanTime = 0f;
@@ -256,9 +270,15 @@ public class Gameplay : MonoBehaviour {
 			if (PlayerPrefs.GetString ("gameState") == "G01") {
 				PlayerPrefs.SetString ("gameState", "G02");
 				txtTest.text = "Player 2 turn \n (Generate Quiz)";
+				// activate player turn indicator
+				player1Halo.SetActive (false);
+				player2Halo.SetActive (true);
 			} else if (PlayerPrefs.GetString ("gameState") == "G02") {
 				PlayerPrefs.SetString ("gameState", "G01");
 				txtTest.text = "Player 1 turn \n (Generate Quiz)";
+				// activate player turn indicator
+				player2Halo.SetActive (false);
+				player1Halo.SetActive (true);
 			}
 		}
 	}
@@ -380,7 +400,6 @@ public class Gameplay : MonoBehaviour {
 			btnGenerate.GetComponent<Button> ().interactable = false;
 			yield return new WaitForSeconds(3f);
 			btnGenerate.GetComponent<Button> ().interactable = true;
-
 			// clean game space
 			CleanGameSpace();
 		}
