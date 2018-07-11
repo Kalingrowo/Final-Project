@@ -9,9 +9,12 @@ public class Gameplay : MonoBehaviour {
 	int numOfPlayer = 2;
 	int playersData = 3;
 	int scanCount = 0;
-	float gameTime, scanTime;
 	bool endGame = false;
-	bool startScanTime = false;
+	//bool startScanTime = false;
+
+	public float gameTime, scanTime;
+	public GameObject progScanTime;
+	public GameObject progGameTime;
 
 	private GenerateQuiz generateQuiz;
 
@@ -54,24 +57,14 @@ public class Gameplay : MonoBehaviour {
 
 		GenerateHUD ();
 		CleanGameSpace ();
+
+		gameTime = 600f;
+		progGameTime.GetComponent<SetProgressBar> ().StartCount (gameTime);
 	}
 
 	void Update(){
-		if (startScanTime) {
-			if (scanTime > 0) {
-				scanTime -= Time.deltaTime;
-			}
-			if (scanTime <= 0) {
-				scanTime = 0f;
-				SkipAnswer ();
-			}
-		}
-		gameTime += Time.deltaTime;
-		if (gameTime > 600f || GetCurCards(0) <= 0 || GetCurCards(1) <= 0 ) {
-			endGame = true;
-			EndCondition ();
-		}
-		Debug.Log ("Game Time : " + gameTime);			
+		//Debug.Log ("Game Time : " + gameTime);		
+		Debug.Log ("scan count : " + scanCount);
 	}
 
 	public void SetPlayer(int idPlayer, int idChar, int curCards){
@@ -208,6 +201,7 @@ public class Gameplay : MonoBehaviour {
 		for (int i = 0; i < 3; i++) {
 			if (answerNumb == quizResult [i]) {
 				answer [i].GetComponent<SpriteRenderer> ().sprite = answerCapsules [answerNumb];
+				answer [i].SetActive (true);
 				SetCurCards (idPlayer, -1);
 				break;
 			} else {
@@ -230,10 +224,9 @@ public class Gameplay : MonoBehaviour {
 	}
 
 	public void SkipAnswer(){
-
-		answer1.SetActive (true);
-		answer2.SetActive (true);
-
+		//answer1.SetActive (true);
+		//answer2.SetActive (true);
+		progScanTime.GetComponent<SetProgress> ().StopCount();
 		scanCount += 1;
 		GenerateHUD ();
 	}
@@ -244,7 +237,6 @@ public class Gameplay : MonoBehaviour {
 		SetCards (1);
 
 		// set a wait time to change state
-		startScanTime = false;
 		scanTime = 0f;
 		StartCoroutine ("WaitX", 2f);
 
@@ -252,24 +244,20 @@ public class Gameplay : MonoBehaviour {
 			// change generate button to skip button
 			btnGenerate.GetComponent<Image> ().sprite = btnGenerate.transform.GetChild (0).GetComponent<Image> ().sprite;
 			if (PlayerPrefs.GetString ("gameState") == "G01") {
-				txtTest.text = "Player 2 turn \n (Set Answer)";
 				// activate player turn indicator
 				player1Halo.SetActive (false);
 				player2Halo.SetActive (true);
 			} else if (PlayerPrefs.GetString ("gameState") == "G02") {
-				txtTest.text = "Player 1 turn \n (Set Answer)";
 				// activate player turn indicator
 				player2Halo.SetActive (false);
 				player1Halo.SetActive (true);
 			}
 		} else if (scanCount == 2) {
 			if (PlayerPrefs.GetString ("gameState") == "G01") {
-				txtTest.text = "Player 1 turn \n (Set Answer)";
 				// activate player turn indicator
 				player2Halo.SetActive (false);
 				player1Halo.SetActive (true);
 			} else if (PlayerPrefs.GetString ("gameState") == "G02") {
-				txtTest.text = "Player 2 turn \n (Set Answer)";
 				// activate player turn indicator
 				player1Halo.SetActive (false);
 				player2Halo.SetActive (true);
@@ -281,13 +269,11 @@ public class Gameplay : MonoBehaviour {
 
 			if (PlayerPrefs.GetString ("gameState") == "G01") {
 				PlayerPrefs.SetString ("gameState", "G02");
-				txtTest.text = "Player 2 turn \n (Generate Quiz)";
 				// activate player turn indicator
 				player1Halo.SetActive (false);
 				player2Halo.SetActive (true);
 			} else if (PlayerPrefs.GetString ("gameState") == "G02") {
 				PlayerPrefs.SetString ("gameState", "G01");
-				txtTest.text = "Player 1 turn \n (Generate Quiz)";
 				// activate player turn indicator
 				player2Halo.SetActive (false);
 				player1Halo.SetActive (true);
@@ -368,9 +354,11 @@ public class Gameplay : MonoBehaviour {
 
 	public void CleanGameSpace(){
 		scanCount = 0;
+		progScanTime.GetComponent<SetProgress> ().StopCount ();;
 		UpdateQuizNumb (0, 0);
 		for (int i = 0; i < answer.Length; i++) {
 			Debug.Log (i);
+			answer [i].SetActive (false);
 			answer [i].GetComponent<SpriteRenderer> ().sprite = answerCapsules [10];
 		}
 	}
@@ -381,6 +369,7 @@ public class Gameplay : MonoBehaviour {
 
 	public void EndCondition(){
 		// check who is the winner by the less current cards
+		endGame = true;
 		if (GetCurCards (0) < GetCurCards (1))
 			PlayerPrefs.SetInt ("Winner", 0);
 		else if (GetCurCards (1) < GetCurCards (0))
@@ -407,7 +396,8 @@ public class Gameplay : MonoBehaviour {
 			yield return new WaitForSeconds(times-1f);
 			btnGenerate.GetComponent<Button> ().interactable = true;
 			scanTime = 17f;
-			startScanTime = true;
+			progScanTime.GetComponent<SetProgress> ().StartCount (scanTime);
+			//startScanTime = true;
 		} else if (scanCount >= 3) {
 			btnGenerate.GetComponent<Button> ().interactable = false;
 			yield return new WaitForSeconds(3f);

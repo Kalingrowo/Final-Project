@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 22242330}
   - component: {fileID: 11442330}
   - component: {fileID: 11442328}
+  - component: {fileID: 114263433311512618}
   m_Layer: 5
   m_Name: ProgressRadialHollow
   m_TagString: Untagged
@@ -146,9 +147,9 @@ MonoBehaviour:
   OnCompleteMethods:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11442326}
-        m_MethodName: set_text
-        m_Mode: 5
+      - m_Target: {fileID: 0}
+        m_MethodName: SkipAnswer
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -251,10 +252,10 @@ RectTransform:
   m_Father: {fileID: 22442330}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 75, y: 0}
-  m_SizeDelta: {x: 66.6, y: -120}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 66.600006, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22442328
 RectTransform:
@@ -271,8 +272,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -6, y: 0}
-  m_SizeDelta: {x: -13, y: 0}
+  m_AnchoredPosition: {x: -6.25, y: 0}
+  m_SizeDelta: {x: -12.5, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22442330
 RectTransform:
@@ -290,8 +291,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 306, y: 5}
-  m_SizeDelta: {x: 150, y: 150}
+  m_AnchoredPosition: {x: 0, y: -470}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22442332
 RectTransform:
@@ -309,8 +310,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -8, y: -8}
+  m_AnchoredPosition: {x: -2, y: 2}
+  m_SizeDelta: {x: -4, y: -4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &100100000
 Prefab:
@@ -323,3 +324,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 142330}
   m_IsPrefabParent: 1
+--- !u!114 &114263433311512618
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 142330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ade0f23e575fd3d4f9dc6f8c8ba06230, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  updateDelay: 2

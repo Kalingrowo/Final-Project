@@ -82,6 +82,8 @@
      <Compile Include="Assets\Scripts\Main Scripts\GenerateQuiz.cs" />
      <Compile Include="Assets\Scripts\Main Scripts\SelectCharP1.cs" />
      <Compile Include="Assets\Scripts\Main Scripts\SelectCharP2.cs" />
+     <Compile Include="Assets\Scripts\Main Scripts\SetProgress.cs" />
+     <Compile Include="Assets\Scripts\Main Scripts\SetProgressBar.cs" />
      <Compile Include="Assets\Scripts\Main Scripts\UIManager.cs" />
      <Compile Include="Assets\Scripts\Main.cs" />
      <Compile Include="Assets\Store Pack\ProgressBar\Script\ProgressBarBehaviour.cs" />
