@@ -80,6 +80,7 @@
      <Compile Include="Assets\Scripts\Main Scripts\FollowPath.cs" />
      <Compile Include="Assets\Scripts\Main Scripts\Gameplay.cs" />
      <Compile Include="Assets\Scripts\Main Scripts\GenerateQuiz.cs" />
+     <Compile Include="Assets\Scripts\Main Scripts\MusicManager.cs" />
      <Compile Include="Assets\Scripts\Main Scripts\SelectCharP1.cs" />
      <Compile Include="Assets\Scripts\Main Scripts\SelectCharP2.cs" />
      <Compile Include="Assets\Scripts\Main Scripts\SetProgress.cs" />

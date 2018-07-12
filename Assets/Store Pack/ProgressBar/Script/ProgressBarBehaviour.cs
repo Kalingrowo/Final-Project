@@ -75,7 +75,8 @@ namespace ProgressBar
         /// <summary>
         /// Has the ProgressBar reached its maximal value (100%)?
         /// </summary>
-        public bool isDone { get { return m_Value.AsFloat == m_FillerInfo.MaxWidth; } }
+		/// edited---------------------
+        public bool isDone { get { return m_Value.AsFloat >= m_FillerInfo.MaxWidth; } }
         /// <summary>
         /// Is the ProgressBar done animating?
         /// </summary>

@@ -9,10 +9,12 @@ public class SetProgressBar : MonoBehaviour {
 	float val;
 	private bool startCount = false;
 
+	public GameObject gameManager;
+
 	public void StartCount(float x){
 		val = 0f;
 		startCount = true;
-		StartCoroutine ("Count", x);
+		StartCoroutine ("Count", Mathf.RoundToInt(x));
 	}
 
 	public void StopCount(){
@@ -27,6 +29,7 @@ public class SetProgressBar : MonoBehaviour {
 			barBehaviour.Value = (val / param) * 100;
 			if (barBehaviour.isDone) {
 				startCount = false;
+				gameManager.GetComponent<Gameplay> ().EndCondition ();
 			}
 		}
 	}
@@ -36,5 +39,6 @@ public class SetProgressBar : MonoBehaviour {
 		if (startCount == true) {
 			val += Time.deltaTime;
 		}
+		Debug.Log ("---" + val.ToString ());
 	}
 }

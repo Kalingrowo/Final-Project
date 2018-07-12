@@ -64,7 +64,7 @@ public class Gameplay : MonoBehaviour {
 
 	void Update(){
 		//Debug.Log ("Game Time : " + gameTime);		
-		Debug.Log ("scan count : " + scanCount);
+		//Debug.Log ("scan count : " + scanCount);
 	}
 
 	public void SetPlayer(int idPlayer, int idChar, int curCards){
@@ -369,6 +369,7 @@ public class Gameplay : MonoBehaviour {
 
 	public void EndCondition(){
 		// check who is the winner by the less current cards
+		Debug.Log("End");
 		endGame = true;
 		if (GetCurCards (0) < GetCurCards (1))
 			PlayerPrefs.SetInt ("Winner", 0);
@@ -402,6 +403,17 @@ public class Gameplay : MonoBehaviour {
 			btnGenerate.GetComponent<Button> ().interactable = false;
 			yield return new WaitForSeconds(3f);
 			btnGenerate.GetComponent<Button> ().interactable = true;
+			// check game score, is there any players have null cards ?
+			if (GetCurCards (0) == 0 && GetCurCards (1) > 0) {
+				PlayerPrefs.SetInt ("Winner", 0);
+				EndCondition ();
+			} else if (GetCurCards (1) == 0 && GetCurCards (0) > 0) {
+				PlayerPrefs.SetInt ("Winner", 1);
+				EndCondition ();
+			} else if (GetCurCards (1) == 0 && GetCurCards (0) == 0){
+				PlayerPrefs.SetInt ("Winner", 7);
+				EndCondition ();
+			}
 			// clean game space
 			CleanGameSpace();
 		}
